@@ -49,8 +49,9 @@ route.route('/:id')
   isLoggedIn, isOwner,
   wrapAsync(async (req, res) => {
     const id = req.params.id;
-    let record = await Listing.findByIdAndDelete(id);
+    let record = await Listing.findById(id);
     if (record){
+        await Listing.findByIdAndDelete(id);
         req.flash("success", "The Listing has been deleted successfully!");
         res.redirect("/listings");
     };
