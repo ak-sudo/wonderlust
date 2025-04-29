@@ -1,0 +1,14 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="alert alert-danger my-3" role="alert">
+  <h3 class="alert-heading">Error Occured!</h3>
+  <h5>
+    <strong><%= err.message %></strong>
+  </h5>
+  <hr />
+  <p class="mb-0">
+    Try refreshing the page or going back to the previous page.<br><br>
+    <a href="<%= req.get('referer') %>" class="btn btn-success">Go Back</a>
+    <a href="/" class="btn btn-secondary">Return Home</a>
+  </p>
+</div>
