@@ -47,7 +47,17 @@ route.route('/:id')
 )
 .delete(
   isLoggedIn, isOwner,
-  wrapAsync(ListingController.destroyListing)
+  wrapAsync(async (req, res) => {
+    const id = req.params.id;
+    dltData = await Listing.findByIdAndDelete(id);
+    if (dltData){
+        req.flash("success", "The Listing has been deleted successfully!");
+        res.redirect("/listings");
+    }
+    res.redirect("/listings");
+  }
+
+)
 );
 
 
