@@ -46,7 +46,7 @@ route.route('/:id')
   wrapAsync(ListingController.updateListing)
 )
 .delete(
-  isLoggedIn, isOwner,
+  isLoggedIn,
   wrapAsync(ListingController.destroyListing)
 );
 
