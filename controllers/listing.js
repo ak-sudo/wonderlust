@@ -58,8 +58,8 @@ module.exports.updateListing = async (req, res) => {
     res.redirect(`/listings/${id}`);
   };
 
-module.exports.destroyListing = async (err, req, res) => {
-    const {id} = req.params;
+module.exports.destroyListing = async (req, res) => {
+    const id = req.params.id;
     dltData = await Listing.findByIdAndDelete(id);
     if (dltData){
         req.flash("success", "The Listing has been deleted successfully!");
@@ -67,5 +67,4 @@ module.exports.destroyListing = async (err, req, res) => {
     }
     res.redirect("/listings");
   }
-
 
