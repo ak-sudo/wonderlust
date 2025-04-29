@@ -49,11 +49,11 @@ route.route('/:id')
   isLoggedIn, isOwner,
   wrapAsync(async (req, res) => {
     const id = req.params.id;
-    dltData = await Listing.findByIdAndDelete(id);
-    if (dltData){
+    await Listing.findByIdAndDelete(id)
+    .then(
         req.flash("success", "The Listing has been deleted successfully!");
         res.redirect("/listings");
-    }
+    );
     res.redirect("/listings");
   }
 
