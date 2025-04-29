@@ -50,10 +50,10 @@ route.route('/:id')
   wrapAsync(async (req, res) => {
     const id = req.params.id;
     await Listing.findByIdAndDelete(id)
-    .then(
+    .then((req,res) =>{
         req.flash("success", "The Listing has been deleted successfully!");
         res.redirect("/listings");
-    );
+    });
     res.redirect("/listings");
   }
 
