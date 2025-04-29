@@ -18,7 +18,7 @@
                 <b>Location</b>: <%= listingData.location %><BR><BR>
                 <b>Country</b>: <%= listingData.country %><BR><BR>
 
-                <% if (currentUser && listingData.owner._id.equals(currentUser._id)) {%>
+                <% if (currentUser && listingData.owner._id.equals(res.locals.currentUser._id)) {%>
         
                     <div class="row">
                         <div class="col-lg-4 col-sm-1">
