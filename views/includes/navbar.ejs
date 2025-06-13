@@ -19,7 +19,7 @@
             <a class="nav-link" href="/listings/new">Airbnb your home</a>
           </li>
 
-          <% if (currentUser){ %>
+          <% if (req.user){ %>
             <li class="nav-item">
               <a class="nav-link" href="/logout"><strong>Logout</strong></a>
             </li>
